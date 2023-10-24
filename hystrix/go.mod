@@ -17,5 +17,5 @@ require (
 	go.uber.org/automaxprocs v1.5.1 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1
-	trpc.group/trpc-go/trpc-go v0.0.0-20230824091938-4699a10e2f35
+	trpc.group/trpc-go/trpc-go v1.0.1
 )

@@ -22,7 +22,6 @@ import (
 	yaml "gopkg.in/yaml.v3"
 	"trpc.group/trpc-go/trpc-go"
 	"trpc.group/trpc-go/trpc-go/codec"
-	"trpc.group/trpc-go/trpc-go/filter"
 	"trpc.group/trpc-go/trpc-go/plugin"
 )
 
@@ -105,9 +104,9 @@ func TestClientFilter(t *testing.T) {
 		ctx, cancel := context.WithTimeout(context.Background(), 2*time.Millisecond)
 		defer cancel()
 
-		fc := filter.Chain{ClientFilter(WithMock(tt.input))}
+		fc := ClientFilter(WithMock(tt.input))
 
-		err := fc.Handle(ctx, &req, &rsp, noopHandler)
+		err := fc(ctx, &req, &rsp, noopHandler)
 		tt.assertion(t, err, err)
 	}
 }
